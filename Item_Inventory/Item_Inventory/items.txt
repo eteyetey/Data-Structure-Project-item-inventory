@@ -1,0 +1,5 @@
+ID|NAME|CATEGORY|RARITY|TYPE|MAX_DURABILITY
+1001|Health Potion|Consumable|1|Consumable|0
+1002|Iron Sword|Weapon|2|Durability|100
+1003|Magic Compass|Tool|4|Permanent|0
+1004|Ancient Coin|Collectible|3|Unusable|0
