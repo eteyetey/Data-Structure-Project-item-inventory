@@ -100,6 +100,10 @@ int Item::getMaxDurability() const {
     return maxDurability;
 }
 
+int Item::getQuantity() const {
+    return quantity;
+}
+
 
 // setter
 
@@ -115,6 +119,60 @@ void Item::setRarity(int rarity) {
     this->rarity = rarity;
 }
 
+void Item::setQuantity(int quantity) {
+
+    // 수량은 음수가 될 수 없음
+    if (quantity < 0) {
+        this->quantity = 0;
+    }
+    else {
+        this->quantity = quantity;
+    }
+}
+
+
+// 수량 증가
+
+void Item::addQuantity(int amount) {
+
+    // 내구도형 아이템은 중첩 불가
+    if (!isStackable()) {
+        return;
+    }
+
+    // 양수만 증가 가능
+    if (amount > 0) {
+        quantity += amount;
+    }
+}
+
+
+// 수량 감소
+
+bool Item::removeQuantity(int amount) {
+
+    // 내구도형 아이템은 수량 감소 사용 안함
+    if (!isStackable()) {
+        return false;
+    }
+
+    // 잘못된 수량
+    if (amount <= 0 || amount > quantity) {
+        return false;
+    }
+
+    quantity -= amount;
+
+    return true;
+}
+
+
+// 아이템 중첩 가능 여부
+
+bool Item::isStackable() const {
+    return type != ItemType::Durability;
+}
+
 
 // 아이템 사용
 
@@ -123,7 +181,12 @@ bool Item::use() {
     switch (type) {
 
     case ItemType::Consumable:
-        // 수량 감소는 나중에 Inventory에서 처리
+
+        // 실제 수량 감소는 Inventory에서 처리
+        if (quantity <= 0) {
+            return false;
+        }
+
         printUseMsg(name);
         return true;
 
@@ -162,6 +225,11 @@ void Item::printUseMsg(string name) {
 bool Item::isUsable() const {
 
     if (type == ItemType::Unusable) {
+        return false;
+    }
+
+    // 소모품인데 수량이 없으면 사용 불가능
+    if (type == ItemType::Consumable && quantity <= 0) {
         return false;
     }
 

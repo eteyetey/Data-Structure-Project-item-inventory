@@ -22,6 +22,8 @@ private:
     int durability;             // 아이템 현재 내구도
     int maxDurability;          // 아이템 최대 내구도
 
+    int quantity = 1;           // 아이템 수량
+
 public:
     // 기본 생성자
     Item();
@@ -43,11 +45,22 @@ public:
     ItemType getType() const;
     int getDurability() const;
     int getMaxDurability() const;
+    int getQuantity() const;
 
     // setter
     void setName(const string& name);
     void setCategory(const string& category);
     void setRarity(int rarity);
+    void setQuantity(int quantity);
+
+    // 수량 증가
+    void addQuantity(int amount);
+
+    // 수량 감소
+    bool removeQuantity(int amount);
+
+    // 아이템 중첩 가능 여부
+    bool isStackable() const;
 
     // 아이템 사용
     bool use();

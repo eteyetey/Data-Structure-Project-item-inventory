@@ -23,8 +23,8 @@ ItemLinkedList::~ItemLinkedList() {
 }
 
 
-// 맨 뒤에 아이템 추가
-void ItemLinkedList::add(const Item& item) {
+// 맨 뒤에 아이템 추가(추후에 맵 자료구조와 연결하기 위해 void가 아닌 ItemNode 포인터를 반환함)
+ItemNode* ItemLinkedList::add(const Item& item) {
 
     ItemNode* newNode = new ItemNode(item);
 
@@ -42,6 +42,7 @@ void ItemLinkedList::add(const Item& item) {
     }
 
     size++;
+    return newNode;
 }
 
 
@@ -94,6 +95,34 @@ bool ItemLinkedList::remove(int index) {
     return true;
 }
 
+bool ItemLinkedList::removeNode(ItemNode* node) {
+
+    // 노드가 NULL이면 삭제불가
+    if (node == nullptr) {
+        return false;
+    }
+
+    // 첫 노드가 아닌 경우
+    if (node->prev != nullptr) {
+        node->prev->next = node->next;
+    }
+    else {
+        head = node->next;
+    }
+
+    //막노드가 아닌 경우
+    if (node->next != nullptr) {
+        node->next->prev = node->prev;
+    }
+    else {
+        tail = node->prev;
+    }
+
+    delete node;
+    size--;
+
+    return true;
+}
 
 // 인덱스를 기준으로 아이템 반환
 Item* ItemLinkedList::get(int index) {
@@ -128,21 +157,68 @@ Item* ItemLinkedList::get(int index) {
 }
 
 
-// 아이템 ID로 검색
-Item* ItemLinkedList::findById(int id) {
+// 같은 ID를 가진 모든 아이템 노드 반환
+vector<ItemNode*> ItemLinkedList::findById(int id) {
+
+    vector<ItemNode*> result;
 
     ItemNode* current = head;
 
     while (current != nullptr) {
 
         if (current->data.getId() == id) {
-            return &current->data;
+            result.push_back(current);
         }
 
         current = current->next;
     }
-    //못찾으면 NULL 반환
-    return nullptr;
+
+    return result;
+}
+
+// 같은 ID를 가진 모든 아이템 삭제
+bool ItemLinkedList::removeById(int id) {
+
+    ItemNode* current = head;
+
+    bool removed = false;
+
+    while (current != nullptr) {
+
+        // 삭제 후 이동할 다음 노드 미리 저장
+        ItemNode* nextNode = current->next;
+
+
+        if (current->data.getId() == id) {
+
+            // 첫 노드가 아닌 경우
+            if (current->prev != nullptr) {
+                current->prev->next = current->next;
+            }
+            else {
+                head = current->next;
+            }
+
+
+            // 마지막 노드가 아닌 경우
+            if (current->next != nullptr) {
+                current->next->prev = current->prev;
+            }
+            else {
+                tail = current->prev;
+            }
+
+
+            delete current;
+            size--;
+
+            removed = true;
+        }
+
+        current = nextNode;
+    }
+
+    return removed;
 }
 
 

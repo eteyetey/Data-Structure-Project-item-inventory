@@ -1,9 +1,13 @@
 #pragma once
 
+#include <vector>
 #include "Item.h"
 
-//아이템을 삽입, 삭제할일이 빈번, 연결리스트 구조가 적합. 또한 단일 연결리스트보다 탐색이 효율적인 이중연결리스트 사용.
-//Item클래스 전용이기 때문에 자료형으로 인한 충돌을 방지할 수 있음.
+using namespace std;
+
+
+// 아이템을 삽입, 삭제할 일이 빈번하므로 연결리스트 구조 사용
+// 양방향 탐색을 위해 이중 연결리스트 사용
 class ItemNode {
 public:
     Item data;
@@ -26,16 +30,22 @@ public:
     ~ItemLinkedList();
 
     // 맨 뒤에 아이템 추가
-    void add(const Item& item);
+    ItemNode* add(const Item& item);
 
     // 인덱스를 기준으로 아이템 삭제
     bool remove(int index);
 
+    // 노드 포인터를 기준으로 삭제
+    bool removeNode(ItemNode* node);
+
     // 인덱스를 기준으로 아이템 반환
     Item* get(int index);
 
-    // 아이템 ID로 검색
-    Item* findById(int id);
+    // 같은 ID를 가진 모든 아이템 노드 반환
+    vector<ItemNode*> findById(int id);
+
+    // 같은 ID를 가진 모든 아이템 삭제
+    bool removeById(int id);
 
     // 현재 아이템 개수 반환
     int getSize() const;
