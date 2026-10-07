@@ -1,10 +1,54 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Codes\\Item_Inventory\\",
+  "WorkspaceRootPath": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Codes\\Item_Inventory\\Item_Inventory\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Inventory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\Inventory.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\FileManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\FileManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\FileManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\FileManager.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Action.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\Action.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\ItemLinkedList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\ItemLinkedList.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\ItemLinkedList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\ItemLinkedList.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Storage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\Storage.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Storage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\Storage.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Inventory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\Inventory.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Item.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\Item.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Item.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{874464FC-15E8-409B-BAF4-6E6FA4A32F3B}|Item_Inventory\\Item_Inventory.vcxproj|solutionrelative:Item_Inventory\\Item.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +58,162 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 11,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FileManager.h",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\FileManager.h",
+              "RelativeDocumentMoniker": "Item_Inventory\\FileManager.h",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\FileManager.h",
+              "RelativeToolTip": "Item_Inventory\\FileManager.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-10-07T04:08:18.166Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FileManager.cpp",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\FileManager.cpp",
+              "RelativeDocumentMoniker": "Item_Inventory\\FileManager.cpp",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\FileManager.cpp",
+              "RelativeToolTip": "Item_Inventory\\FileManager.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-10-07T04:08:09.629Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Action.h",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Action.h",
+              "RelativeDocumentMoniker": "Item_Inventory\\Action.h",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Action.h",
+              "RelativeToolTip": "Item_Inventory\\Action.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-10-07T04:08:04.26Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "ItemLinkedList.h",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\ItemLinkedList.h",
+              "RelativeDocumentMoniker": "Item_Inventory\\ItemLinkedList.h",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\ItemLinkedList.h",
+              "RelativeToolTip": "Item_Inventory\\ItemLinkedList.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-10-07T04:07:55.873Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ItemLinkedList.cpp",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\ItemLinkedList.cpp",
+              "RelativeDocumentMoniker": "Item_Inventory\\ItemLinkedList.cpp",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\ItemLinkedList.cpp",
+              "RelativeToolTip": "Item_Inventory\\ItemLinkedList.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-10-07T04:07:44.84Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Storage.h",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Storage.h",
+              "RelativeDocumentMoniker": "Item_Inventory\\Storage.h",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Storage.h",
+              "RelativeToolTip": "Item_Inventory\\Storage.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-10-07T04:07:33.716Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Storage.cpp",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Storage.cpp",
+              "RelativeDocumentMoniker": "Item_Inventory\\Storage.cpp",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Storage.cpp",
+              "RelativeToolTip": "Item_Inventory\\Storage.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-10-07T04:07:25.046Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Inventory.h",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Inventory.h",
+              "RelativeDocumentMoniker": "Item_Inventory\\Inventory.h",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Inventory.h",
+              "RelativeToolTip": "Item_Inventory\\Inventory.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-10-07T04:07:18.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Inventory.cpp",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Inventory.cpp",
+              "RelativeDocumentMoniker": "Item_Inventory\\Inventory.cpp",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Inventory.cpp",
+              "RelativeToolTip": "Item_Inventory\\Inventory.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-10-07T04:07:08.861Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Item.h",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Item.h",
+              "RelativeDocumentMoniker": "Item_Inventory\\Item.h",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Item.h",
+              "RelativeToolTip": "Item_Inventory\\Item.h",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2026-10-07T04:06:59.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Item.cpp",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Item.cpp",
+              "RelativeDocumentMoniker": "Item_Inventory\\Item.cpp",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\Item.cpp",
+              "RelativeToolTip": "Item_Inventory\\Item.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2026-10-07T04:06:51.604Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "main.cpp",
-              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Codes\\Item_Inventory\\Item_Inventory\\main.cpp",
+              "DocumentMoniker": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\main.cpp",
               "RelativeDocumentMoniker": "Item_Inventory\\main.cpp",
-              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Codes\\Item_Inventory\\Item_Inventory\\main.cpp",
+              "ToolTip": "C:\\Users\\ym060\\OneDrive\\\uBC14\uD0D5 \uD654\uBA74\\\uC601\uBBFC\\\uB300\uD559\uAD00\uB828\\2-2\\\uC790\uAD6C\uC2E4\\Data-Structure-Project-item-inventory\\Item_Inventory\\Item_Inventory\\main.cpp",
               "RelativeToolTip": "Item_Inventory\\main.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-10-07T03:49:05.586Z",
+              "WhenOpened": "2026-10-07T03:54:29.773Z",
               "EditorCaption": ""
             }
           ]
