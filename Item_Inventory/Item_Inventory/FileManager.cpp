@@ -209,6 +209,18 @@ bool FileManager::loadInventory(const string& fileName, Inventory& inventory) {
             return false;
         }
 
+        // 중첩 가능한 아이템은 한 슬롯에 최대 100개
+        if (type != ItemType::Durability &&
+            quantity > Inventory::MAX_STACK) {
+            return false;
+        }
+
+        // 파일에 기록된 슬롯이 100개를 초과하면 오버플로
+        if (loadedItems.size() >= Inventory::MAX_SLOTS) {
+            return false;
+        }
+
+
         Item item(id, data[1], data[2],
             rarity, type, durability, maxDurability);
 
@@ -220,13 +232,15 @@ bool FileManager::loadInventory(const string& fileName, Inventory& inventory) {
         return false;
     }
 
-    // 일단 다지워
+
     inventory.clear();
 
-    //인벤토리에 로딩된 아이템 하나씩 추가
+
+    //인벤토리에 로딩된 아이템 슬롯단위로 추가
     for (const Item& item : loadedItems) {
-        inventory.addItem(item);
+        inventory.addLoadedSlot(item);
     }
+
 
     return true;
 }

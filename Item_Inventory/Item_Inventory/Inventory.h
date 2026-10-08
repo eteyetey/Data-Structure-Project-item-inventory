@@ -1,3 +1,4 @@
+
 #pragma once
 
 #include <vector>
@@ -5,6 +6,13 @@
 #include "ItemLinkedList.h"
 
 using namespace std;
+
+
+//넣을 수 있는 아이템 수량이 정해져있기 때문에 꽉차서 못넣는 경우가 생길것을 대비해 반환형을 만든것임.
+struct AddResult {
+    int added;       // 실제 추가된 수량
+    int remaining;   // 추가하지 못한 수량
+};
 
 
 class Inventory {
@@ -18,8 +26,18 @@ private:
 public:
     Inventory();
 
-    // 아이템 추가
-    void addItem(const Item& item);
+    //최대 슬롯개수, 최대 중첩개수
+    static constexpr int MAX_SLOTS = 100;
+    static constexpr int MAX_STACK = 100;
+
+
+    // 아이템 추가(기존 void형이였지만, 아이템 개수제한이 넘어가면 전부 넣을 수 없기때문에 얼마나 못넣는지 알려줘야해서 반환형을 변경함)
+    AddResult addItem(const Item& item);
+
+
+    //슬롯 단위로 아이템을 추가
+    bool addLoadedSlot(const Item& item);
+
 
     // 같은 ID 중 특정 아이템 하나 삭제
     bool removeItem(int id, int index);
@@ -38,6 +56,10 @@ public:
 
     int getItemCount() const;
     bool isEmpty() const;
+
+    //남은 슬롯 개수
+    int getRemainingSlots() const;
+    
 
     void clear();
     void printAll();

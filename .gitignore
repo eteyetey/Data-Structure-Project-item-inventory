@@ -1,27 +1,36 @@
 
-# Visual Studio 임시 파일 및 캐시
+# Visual Studio 캐시
 .vs/
+**/.vs/
 *.vsidx
 *.suo
 *.VC.db
 *.VC.opendb
 *.ipch
-*.opensdf
 *.sdf
+*.opensdf
 
-# 빌드 결과물
+# Visual Studio 빌드 결과물
 [Dd]ebug/
 [Rr]elease/
 x64/
 x86/
+[Bb]in/
+[Oo]bj/
+
+# 컴파일 결과 파일
 *.obj
+*.exe
 *.pdb
 *.ilk
 *.idb
 *.tlog
 *.lastbuildstate
 *.obj.dt.d.json
-*.exe
+
+# 빌드 과정에서 생성되는 JSON 파일
+*.json.command
+*.dt.d.json
 
 # 사용자별 설정
 *.user

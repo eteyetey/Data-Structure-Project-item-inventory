@@ -1,5 +1,7 @@
+
 #include "Inventory.h"
 #include <iostream>
+#include <algorithm>
 
 using namespace std;
 
@@ -9,33 +11,142 @@ Inventory::Inventory() {}
 
 
 // 아이템 추가
-void Inventory::addItem(const Item& item) {
+
+AddResult Inventory::addItem(const Item& item) {
 
     int id = item.getId();
+    int requested = item.getQuantity();
+
+    //일단 성공0개 실패n개
+    AddResult result = { 0, requested };
+
+    // 잘못된 수량은 삽입하지 않음
+    if (requested <= 0) {
+        return result;
+    }
+
+    // 중첩 불가능한 아이템인 경우
+    if (!item.isStackable()) {
+
+        // 중첩 불가능한 아이템은 1개씩 삽입
+        for (int i = 0; i < requested; i++) {
+
+            //현재 연결리스트에 들어있는 아이템개수(정확히는 슬롯개수) 가 맥스를 초과할경우 넣는것을 멈춤
+            if (items.getSize() >= MAX_SLOTS) {
+                break;
+            }
+
+            //하나씩 넣는법 : 일단 추가하려는 아이템의 개수 1짜리 item 임시 객체를 생성하고 
+            Item newItem = item;
+            newItem.setQuantity(1);
+
+            // 새로운 노드 추가
+            ItemNode* newNode = items.add(newItem);
+
+            // 맵에도 추가
+            itemMap[id].push_back(newNode);
+
+            //하나 추가 성공할때마다 성공이 1개씩 늘고 남은게 1개씩 줄음
+            result.added++;
+            result.remaining--;
+        }
+
+        //성공 몇개 실패 몇개 반환
+        return result;
+    }
 
     // 중첩 가능한 아이템인 경우
-    if (item.isStackable()) {
+    auto it = itemMap.find(id);
 
-        auto it = itemMap.find(id);
+    // 같은 ID의 아이템이 이미 존재하면 수량만 증가
 
-        // 같은 ID의 아이템이 이미 존재하면 수량만 증가
-        if (it != itemMap.end() && !it->second.empty()) {
+    if (it != itemMap.end()) {
 
-            ItemNode* node = it->second[0];
+        //이미 존재하는 슬롯에 대해 일단 남는 공간이 있으면 집어넣고봄
+        for (ItemNode* node : it->second) {
 
-            node->data.addQuantity(item.getQuantity());
+            //더이상 넣을게 없이 다넣었다면 정지
+            if (result.remaining <= 0) {
+                break;
+            }
 
-            return;
+            int currentQuantity = node->data.getQuantity();
+
+            // 이미 꽉 찬 스택은 건너뛰기
+            if (currentQuantity >= MAX_STACK) {
+                continue;
+            }
+
+            int space = MAX_STACK - currentQuantity;
+            int amount = min(space, result.remaining);
+
+            node->data.addQuantity(amount);
+
+            result.added += amount;
+            result.remaining -= amount;
         }
     }
 
+    //남는슬롯은 이제 없다면 슬롯 개수가 초과되지않는한 슬롯을 새로 만듬
+    while (result.remaining > 0 &&
+        items.getSize() < MAX_SLOTS) {
+
+        //남은 아이템 개수랑 슬롯 하나의 최대치중 적은거 만큼 채워햐함(남으면 또 다음 슬롯 만들면됨)
+        int amount = min(MAX_STACK, result.remaining);
+
+        Item newItem = item;
+        newItem.setQuantity(amount);
+
+        // 새로운 노드 추가
+        ItemNode* newNode = items.add(newItem);
+
+        // 맵에도 추가
+        itemMap[id].push_back(newNode);
+
+        result.added += amount;
+        result.remaining -= amount;
+    }
+    
+
+    return result;
+}
+
+
+
+
+// 슬롯 단위로 추가(새로운 슬롯을 추가하는 느낌) 그러나 개수 초과분을 저장하지 않음(초과시 오류)
+bool Inventory::addLoadedSlot(const Item& item) {
+
+    // 인벤토리 슬롯 초과
+    if (items.getSize() >= MAX_SLOTS) {
+        return false;
+    }
+
+    int quantity = item.getQuantity();
+
+    // 수량 검사
+    if (quantity <= 0) {
+        return false;
+    }
+
+    if (item.isStackable()) {
+        if (quantity > MAX_STACK) {
+            return false;
+        }
+    }
+    else if (quantity != 1) {
+        return false;
+    }
 
     // 새로운 노드 추가
     ItemNode* newNode = items.add(item);
 
     // 맵에도 추가
-    itemMap[id].push_back(newNode);
+    itemMap[item.getId()].push_back(newNode);
+
+    return true;
 }
+
 
 
 // 같은 ID 중 특정 아이템 하나 삭제
@@ -215,6 +326,13 @@ int Inventory::getItemCount() const {
 bool Inventory::isEmpty() const {
     return items.isEmpty();
 }
+
+
+//남은 슬롯의 개수를 반환
+int Inventory::getRemainingSlots() const {
+    return MAX_SLOTS - items.getSize();
+}
+
 
 
 // 인벤토리 전체 비우기
