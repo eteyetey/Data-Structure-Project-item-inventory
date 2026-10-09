@@ -32,7 +32,7 @@ AddResult Inventory::addItem(const Item& item) {
         for (int i = 0; i < requested; i++) {
 
             //현재 연결리스트에 들어있는 아이템개수(정확히는 슬롯개수) 가 맥스를 초과할경우 넣는것을 멈춤
-            if (items.getSize() >= MAX_SLOTS) {
+            if (items.getSize() >= maxSlots) {
                 break;
             }
 
@@ -73,11 +73,11 @@ AddResult Inventory::addItem(const Item& item) {
             int currentQuantity = node->data.getQuantity();
 
             // 이미 꽉 찬 스택은 건너뛰기
-            if (currentQuantity >= MAX_STACK) {
+            if (currentQuantity >= maxStack) {
                 continue;
             }
 
-            int space = MAX_STACK - currentQuantity;
+            int space = maxStack - currentQuantity;
             int amount = min(space, result.remaining);
 
             node->data.addQuantity(amount);
@@ -89,10 +89,10 @@ AddResult Inventory::addItem(const Item& item) {
 
     //남는슬롯은 이제 없다면 슬롯 개수가 초과되지않는한 슬롯을 새로 만듬
     while (result.remaining > 0 &&
-        items.getSize() < MAX_SLOTS) {
+        items.getSize() < maxSlots) {
 
         //남은 아이템 개수랑 슬롯 하나의 최대치중 적은거 만큼 채워햐함(남으면 또 다음 슬롯 만들면됨)
-        int amount = min(MAX_STACK, result.remaining);
+        int amount = min(maxStack, result.remaining);
 
         Item newItem = item;
         newItem.setQuantity(amount);
@@ -118,7 +118,7 @@ AddResult Inventory::addItem(const Item& item) {
 bool Inventory::addLoadedSlot(const Item& item) {
 
     // 인벤토리 슬롯 초과
-    if (items.getSize() >= MAX_SLOTS) {
+    if (items.getSize() >= maxSlots) {
         return false;
     }
 
@@ -130,7 +130,7 @@ bool Inventory::addLoadedSlot(const Item& item) {
     }
 
     if (item.isStackable()) {
-        if (quantity > MAX_STACK) {
+        if (quantity > maxStack) {
             return false;
         }
     }
@@ -147,6 +147,42 @@ bool Inventory::addLoadedSlot(const Item& item) {
     return true;
 }
 
+//인벤토리의 특정 인덱스 아이템 삭제
+bool Inventory::removeItemAt(int index) {
+
+    Item* item = items.get(index);
+
+    if (item == nullptr) {
+        return false;
+    }
+
+    int id = item->getId();
+
+    auto it = itemMap.find(id);
+
+    if (it == itemMap.end()) {
+        return false;
+    }
+
+    // 해당 아이템의 노드 찾기
+    for (int i = 0; i < static_cast<int>(it->second.size()); i++) {
+        if (&it->second[i]->data == item) {
+
+            ItemNode* node = it->second[i];
+
+            items.removeNode(node);
+            it->second.erase(it->second.begin() + i);
+
+            if (it->second.empty()) {
+                itemMap.erase(it);
+            }
+
+            return true;
+        }
+    }
+
+    return false;
+}
 
 
 // 같은 ID 중 특정 아이템 하나 삭제
@@ -330,7 +366,7 @@ bool Inventory::isEmpty() const {
 
 //남은 슬롯의 개수를 반환
 int Inventory::getRemainingSlots() const {
-    return MAX_SLOTS - items.getSize();
+    return maxSlots - items.getSize();
 }
 
 
@@ -385,4 +421,56 @@ void Inventory::printAll() {
 
         cout << endl;
     }
+}
+
+// 최대 슬롯 개수 설정
+bool Inventory::setMaxSlots(int value) {
+
+    // 1 이상의 값만 허용
+    if (value <= 0) {
+        return false;
+    }
+
+    // 현재 사용 중인 슬롯보다 작게 설정 불가
+    if (value < items.getSize()) {
+        return false;
+    }
+
+    maxSlots = value;
+    return true;
+}
+
+
+// 최대 중첩 수량 설정
+bool Inventory::setMaxStack(int value) {
+
+    if (value <= 0) {
+        return false;
+    }
+
+    // 기존 아이템의 수량이 새로운 제한을 초과하는지 검사(90개 이미 들어있는데 최대치를 50개로 바꿀수는 없음)
+    for (int i = 0; i < items.getSize(); i++) {
+
+        Item* item = items.get(i);
+
+        if (item != nullptr && item->isStackable()
+            && item->getQuantity() > value) {
+            return false;
+        }
+    }
+
+    maxStack = value;
+    return true;
+}
+
+
+// 최대 슬롯 개수 반환
+int Inventory::getMaxSlots() const {
+    return maxSlots;
+}
+
+
+// 최대 중첩 수량 반환
+int Inventory::getMaxStack() const {
+    return maxStack;
 }

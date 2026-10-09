@@ -23,12 +23,15 @@ private:
     // ID를 통해 같은 종류 아이템에 빠르게 접근
     map<int, vector<ItemNode*>> itemMap;
 
+    int maxSlots = 100;
+    int maxStack = 100;
+
+
 public:
     Inventory();
 
     //최대 슬롯개수, 최대 중첩개수
-    static constexpr int MAX_SLOTS = 100;
-    static constexpr int MAX_STACK = 100;
+  
 
 
     // 아이템 추가(기존 void형이였지만, 아이템 개수제한이 넘어가면 전부 넣을 수 없기때문에 얼마나 못넣는지 알려줘야해서 반환형을 변경함)
@@ -38,6 +41,8 @@ public:
     //슬롯 단위로 아이템을 추가
     bool addLoadedSlot(const Item& item);
 
+    //인벤토리의 특정 슬롯 아이템 삭제
+    bool removeItemAt(int index);
 
     // 같은 ID 중 특정 아이템 하나 삭제
     bool removeItem(int id, int index);
@@ -63,4 +68,12 @@ public:
 
     void clear();
     void printAll();
+
+    // 최대 슬롯 및 중첩 수량 설정
+    bool setMaxSlots(int value);
+    bool setMaxStack(int value);
+
+    // 현재 설정값 반환
+    int getMaxSlots() const;
+    int getMaxStack() const;
 };

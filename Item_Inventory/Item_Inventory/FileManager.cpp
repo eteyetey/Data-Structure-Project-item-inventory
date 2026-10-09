@@ -211,12 +211,12 @@ bool FileManager::loadInventory(const string& fileName, Inventory& inventory) {
 
         // 중첩 가능한 아이템은 한 슬롯에 최대 100개
         if (type != ItemType::Durability &&
-            quantity > Inventory::MAX_STACK) {
+            quantity > inventory.getMaxStack()) {
             return false;
         }
 
         // 파일에 기록된 슬롯이 100개를 초과하면 오버플로
-        if (loadedItems.size() >= Inventory::MAX_SLOTS) {
+        if (loadedItems.size() >= inventory.getMaxSlots()) {
             return false;
         }
 
