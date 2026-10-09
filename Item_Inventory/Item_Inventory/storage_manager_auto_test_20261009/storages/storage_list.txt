@@ -1,0 +1,5 @@
+NEXT_ID|5
+ID|NAME|MAX_SLOTS|MAX_STACK
+1|My Chest|100|100
+2|Iron Chest|2|5
+4|New Chest|100|100

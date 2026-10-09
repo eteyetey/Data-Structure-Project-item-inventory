@@ -149,6 +149,7 @@
     <ClCompile Include="ItemLinkedList.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Storage.cpp" />
+    <ClCompile Include="StorageManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Action.h" />
@@ -157,10 +158,12 @@
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemLinkedList.h" />
     <ClInclude Include="Storage.h" />
+    <ClInclude Include="StorageManager.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="inventory.txt" />
     <Text Include="items.txt" />
+    <Text Include="storage_list.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
