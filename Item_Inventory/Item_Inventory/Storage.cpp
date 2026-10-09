@@ -5,7 +5,10 @@ using namespace std;
 
 
 // 생성자
-Storage::Storage() {}
+Storage::Storage(int id, const string& name) {
+    this->id = id;
+    this->name = name;
+}
 
 
 // 두 인벤토리 사이에서 아이템 이동
@@ -81,6 +84,18 @@ AddResult Storage::withdraw(Inventory& player, int index, int quantity) {
 // 내부 Inventory 반환
 Inventory& Storage::getInventory() {
     return inventory;
+}
+
+int Storage::getId() const {
+    return id;
+}
+
+string Storage::getName() const {
+    return name;
+}
+
+void Storage::setName(string newName) {
+    name = newName;
 }
 
 
