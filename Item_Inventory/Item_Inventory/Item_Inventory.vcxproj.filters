@@ -39,28 +39,31 @@
     <ClCompile Include="StorageManager.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="Action.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Item.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Inventory.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Storage.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ItemLinkedList.h">
-      <Filter>소스 파일</Filter>
-    </ClInclude>
     <ClInclude Include="Action.h">
-      <Filter>소스 파일</Filter>
+      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="FileManager.h">
-      <Filter>소스 파일</Filter>
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Inventory.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Item.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Storage.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="StorageManager.h">
-      <Filter>소스 파일</Filter>
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="ItemLinkedList.h">
+      <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
