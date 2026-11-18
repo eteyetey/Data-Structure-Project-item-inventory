@@ -135,6 +135,7 @@ void Action::manageInventory() {
         cout << "2. Use Item\n";
         cout << "3. Remove Item\n";
         cout << "4. Transfer to Storage\n";
+        cout << "5. Sort Items\n";
         cout << "0. Back\n";
 
         int choice = readInt("Select > ");
@@ -162,6 +163,10 @@ void Action::manageInventory() {
 
         case 4:
             transferToStorage();
+            break;
+
+        case 5:
+            sortInventory();
             break;
 
         default:
@@ -686,3 +691,65 @@ void Action::loadData() {
         cout << "Data load failed or partially completed.\n";
     }
 }
+
+
+// 인벤토리 정렬
+void Action::sortInventory() {
+    clearScreen();
+    showInventory();
+
+    if (inventory.isEmpty()) {
+        cout << "Inventory is empty.\n";
+        return;
+    }
+
+    cout << "\n===== SORT ITEMS =====\n";
+    cout << "1. ID\n";
+    cout << "2. Name\n";
+    cout << "3. Quantity\n";
+    cout << "4. Added Time\n";
+    cout << "5. Rarity\n";
+    cout << "0. Back\n";
+
+    int field = readInt("Select > ");
+
+    if (field == 0) {
+        cout << "Sorting cancelled.\n";
+        return;
+    }
+
+    if (field < 1 || field > 5) {
+        cout << "Invalid sort field.\n";
+        return;
+    }
+
+    cout << "\n===== SORT ORDER =====\n";
+    cout << "1. Ascending\n";
+    cout << "2. Descending\n";
+    cout << "0. Cancel\n";
+
+    int order = readInt("Select > ");
+
+    if (order == 0) {
+        cout << "Sorting cancelled.\n";
+        return;
+    }
+
+    if (order != 1 && order != 2) {
+        cout << "Invalid sort order.\n";
+        return;
+    }
+
+    bool ascending = order == 1;
+
+    inventory.sortItems(
+        static_cast<SortField>(field),
+        ascending
+    );
+
+    clearScreen();
+    showInventory();
+
+    cout << "\nInventory sorted successfully.\n";
+}
+

@@ -1,5 +1,5 @@
 #include "ItemLinkedList.h"
-
+#include <algorithm>
 
 // ItemNode 생성자
 ItemNode::ItemNode(const Item& item) {
@@ -251,4 +251,69 @@ void ItemLinkedList::clear() {
     head = nullptr;
     tail = nullptr;
     size = 0;
+}
+
+
+// 선택한 기준으로 연결리스트 정렬
+void ItemLinkedList::sortItems(SortField field, bool ascending) {
+    if (size < 2) {
+        return;
+    }
+
+    // 노드를 삭제하지 않고 연결 순서만 바꿀 예정
+    vector<ItemNode*> nodes;
+
+    ItemNode* current = head;
+
+    while (current != nullptr) {
+        nodes.push_back(current);
+        current = current->next;
+    }
+
+    // 선택한 기준에 따라 두 아이템 비교
+    auto compare = [field, ascending](ItemNode* a, ItemNode* b) {
+        const Item& first = a->data;
+        const Item& second = b->data;
+
+        switch (field) {
+        case SortField::Id:
+            return ascending
+                ? first.getId() < second.getId()
+                : first.getId() > second.getId();
+
+        case SortField::Name:
+            return ascending
+                ? first.getName() < second.getName()
+                : first.getName() > second.getName();
+
+        case SortField::Quantity:
+            return ascending
+                ? first.getQuantity() < second.getQuantity()
+                : first.getQuantity() > second.getQuantity();
+
+        case SortField::AddedTime:
+            return ascending
+                ? first.getAddedTime() < second.getAddedTime()
+                : first.getAddedTime() > second.getAddedTime();
+
+        case SortField::Rarity:
+            return ascending
+                ? first.getRarity() < second.getRarity()
+                : first.getRarity() > second.getRarity();
+        }
+
+        return false;
+        };
+
+    // 값이 같은 아이템들의 기존 순서는 유지
+    stable_sort(nodes.begin(), nodes.end(), compare);
+
+    // 정렬 결과에 맞게 노드 연결을 다시 설정
+    head = nodes.front();
+    tail = nodes.back();
+
+    for (int i = 0; i < size; i++) {
+        nodes[i]->prev = i == 0 ? nullptr : nodes[i - 1];
+        nodes[i]->next = i == size - 1 ? nullptr : nodes[i + 1];
+    }
 }

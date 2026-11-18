@@ -43,6 +43,7 @@ private:
     void saveData();
     void loadData();
 
+    void sortInventory();
 public:
     void run();
 };

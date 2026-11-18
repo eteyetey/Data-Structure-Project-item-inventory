@@ -80,4 +80,6 @@ public:
     // 현재 설정값 반환
     int getMaxSlots() const;
     int getMaxStack() const;
+
+    void sortItems(SortField field, bool ascending = true);
 };

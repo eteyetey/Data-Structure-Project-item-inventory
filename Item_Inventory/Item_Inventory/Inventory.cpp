@@ -1,6 +1,7 @@
 #include "Inventory.h"
 #include <iostream>
 #include <algorithm>
+#include <ctime>
 
 using namespace std;
 
@@ -38,6 +39,10 @@ AddResult Inventory::addItem(const Item& item) {
             //하나씩 넣는법 : 일단 추가하려는 아이템의 개수 1짜리 item 임시 객체를 생성하고 
             Item newItem = item;
             newItem.setQuantity(1);
+            // 처음 생성되는 슬롯에 추가 시간 기록
+            if (newItem.getAddedTime() == 0) {
+                newItem.setAddedTime(static_cast<std::int64_t>(std::time(nullptr)));
+            }
 
             // 새로운 노드 추가
             ItemNode* newNode = items.add(newItem);
@@ -95,6 +100,10 @@ AddResult Inventory::addItem(const Item& item) {
 
         Item newItem = item;
         newItem.setQuantity(amount);
+        // 처음 생성되는 슬롯에 추가 시간 기록
+        if (newItem.getAddedTime() == 0) {
+            newItem.setAddedTime(static_cast<std::int64_t>(std::time(nullptr)));
+        }
 
         // 새로운 노드 추가
         ItemNode* newNode = items.add(newItem);
@@ -444,7 +453,8 @@ void Inventory::printAll(bool isStorage) {
 
         cout << "[" << i << "] "
             << "ID: " << item->getId()
-            << " | Name: " << item->getName();
+            << " | Name: " << item->getName()
+            << " | star " << item->getRarity();
 
 
         // 중첩 가능한 아이템
@@ -515,4 +525,14 @@ int Inventory::getMaxSlots() const {
 // 최대 중첩 수량 반환
 int Inventory::getMaxStack() const {
     return maxStack;
+}
+
+// 인벤토리 아이템 정렬
+void Inventory::sortItems(SortField field, bool ascending) {
+    items.sortItems(field, ascending);
+
+    // 노드 연결 순서가 바뀌었으므로 map의 순서도 맞춰줌
+    for (auto& entry : itemMap) {
+        entry.second = items.findById(entry.first);
+    }
 }

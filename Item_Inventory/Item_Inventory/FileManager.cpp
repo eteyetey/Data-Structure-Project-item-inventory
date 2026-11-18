@@ -3,6 +3,7 @@
 #include <fstream>
 #include <sstream>
 #include <stdexcept>
+#include <cstdint>
 
 using namespace std;
 
@@ -66,7 +67,23 @@ static bool parseInt(const string& text, int& result) {
         return false;
     }
 }
+// 저장된 추가 시간을 정수로 변환
+static bool parseTime(const string& text, std::int64_t& result) {
+    try {
+        size_t pos = 0;
+        long long value = stoll(text, &pos);
 
+        if (pos != text.size() || value < 0) {
+            return false;
+        }
+
+        result = static_cast<std::int64_t>(value);
+        return true;
+    }
+    catch (const exception&) {
+        return false;
+    }
+}
 
 // 문자열을 | 기준으로 분리해서 벡터로 반환
 static vector<string> splitLine(const string& line) {
@@ -177,8 +194,8 @@ bool FileManager::loadInventory(const string& fileName, Inventory& inventory) {
 
         vector<string> data = splitLine(line);
 
-        // 저장 데이터는 8개 필드
-        if (data.size() != 8) {
+        // 기존 8개 필드와 추가 시간이 포함된 9개 필드 지원
+        if (data.size() != 8 && data.size() != 9) {
             return false;
         }
 
@@ -225,6 +242,18 @@ bool FileManager::loadInventory(const string& fileName, Inventory& inventory) {
             rarity, type, durability, maxDurability);
 
         item.setQuantity(quantity);
+
+       
+        if (data.size() == 9) {
+            std::int64_t addedTime;
+
+            if (!parseTime(data[8], addedTime)) {
+                return false;
+            }
+
+            item.setAddedTime(addedTime);
+        }
+
         loadedItems.push_back(item);
     }
 
@@ -256,7 +285,7 @@ bool FileManager::saveInventory(const string& fileName, Inventory& inventory) {
     }
 
     // 파일 헤더 작성
-    file << "ID|NAME|CATEGORY|RARITY|TYPE|DURABILITY|MAX_DURABILITY|QUANTITY\n";
+    file << "ID|NAME|CATEGORY|RARITY|TYPE|DURABILITY|MAX_DURABILITY|QUANTITY|ADDED_TIME\n";
 
     //현재 인벤토리에 들어있는 아이템 개수만큼 반복하며 하나씩 집어넣어
     for (int i = 0; i < inventory.getItemCount(); i++) {
@@ -282,7 +311,8 @@ bool FileManager::saveInventory(const string& fileName, Inventory& inventory) {
             << itemTypeToString(item->getType()) << "|"
             << item->getDurability() << "|"
             << item->getMaxDurability() << "|"
-            << item->getQuantity() << "\n";
+            << item->getQuantity() << "|"
+            << item->getAddedTime() << "\n";
 
         if (!file) {
             return false;

@@ -104,6 +104,9 @@ int Item::getQuantity() const {
     return quantity;
 }
 
+int64_t Item::getAddedTime() const {
+    return addedTime;
+}
 
 // setter
 
@@ -117,6 +120,12 @@ void Item::setCategory(const string& category) {
 
 void Item::setRarity(int rarity) {
     this->rarity = rarity;
+}
+
+void Item::setAddedTime(std::int64_t time) {
+    if (time >= 0) {
+        addedTime = time;
+    }
 }
 
 void Item::setQuantity(int quantity) {

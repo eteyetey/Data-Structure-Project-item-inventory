@@ -5,6 +5,13 @@
 
 using namespace std;
 
+enum class SortField {
+    Id = 1,
+    Name,
+    Quantity,
+    AddedTime,
+    Rarity
+};
 
 // 아이템을 삽입, 삭제할 일이 빈번하므로 연결리스트 구조 사용
 // 양방향 탐색을 위해 이중 연결리스트 사용
@@ -55,4 +62,6 @@ public:
 
     // 전체 리스트 비우기
     void clear();
+
+    void sortItems(SortField field, bool ascending = true);//정렬
 };

@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <cstdint>
 
 using namespace std;
 
@@ -16,6 +17,7 @@ private:
     string name;                // 아이템 이름
     string category;            // 아이템 카테고리
     int rarity;                 // 아이템 희귀도(성급)
+    int64_t addedTime = 0;// 아이템이 슬롯에 처음 추가된 시간
 
     ItemType type;              // 아이템 타입(사용 관련)
 
@@ -46,13 +48,13 @@ public:
     int getDurability() const;
     int getMaxDurability() const;
     int getQuantity() const;
-
+    int64_t getAddedTime() const;
     // setter
     void setName(const string& name);
     void setCategory(const string& category);
     void setRarity(int rarity);
     void setQuantity(int quantity);
-
+    void setAddedTime(std::int64_t time);
     // 수량 증가
     void addQuantity(int amount);
 
