@@ -2,6 +2,7 @@
 #include <iostream>
 #include <algorithm>
 #include <ctime>
+#include <iomanip>
 
 using namespace std;
 
@@ -426,54 +427,87 @@ void Inventory::clear() {
 
 
 // 인벤토리 전체 출력
+
+ // 인벤토리 전체 출력
+
+ // 인벤토리 전체 출력
 void Inventory::printAll(bool isStorage) {
-    if (isStorage) {
-        if (items.isEmpty()) {
-            cout << "Storage is empty." << endl;
-            return;
-        }
+    if (items.isEmpty()) {
+        cout << (isStorage ? "Storage is empty." : "Inventory is empty.") << endl;
+        return;
     }
-    else {
-        if (items.isEmpty()) {
-            cout << "Inventory is empty." << endl;
-            return;
-        }
-    }
-   
 
+    int slotWidth = 0;
+    int idWidth = 0;
+    int nameWidth = 0;
+    int rarityWidth = 0;
+    int durabilityWidth = 0;
 
+    // 각 열에서 가장 긴 문자열의 길이를 계산
     for (int i = 0; i < items.getSize(); i++) {
-
         Item* item = items.get(i);
 
         if (item == nullptr) {
             continue;
         }
 
+        string slot = "[" + to_string(i) + "]";
+        string id = "ID: " + to_string(item->getId());
+        string name = "Name: " + item->getName();
+        string rarity = to_string(item->getRarity());
 
-        cout << "[" << i << "] "
-            << "ID: " << item->getId()
-            << " | Name: " << item->getName()
-            << " | star " << item->getRarity();
+        string durability = "Durability: None";
 
-
-        // 중첩 가능한 아이템
-        if (item->isStackable()) {
-            cout << " | Quantity: " << item->getQuantity();
-        }
-
-        // 내구도형 아이템
         if (item->getType() == ItemType::Durability) {
-            cout << " | Durability: "
-                << item->getDurability()
-                << " / "
-                << item->getMaxDurability();
+            durability = "Durability: "
+                + to_string(item->getDurability())
+                + " / "
+                + to_string(item->getMaxDurability());
         }
 
+        slotWidth = max(slotWidth, static_cast<int>(slot.size()));
+        idWidth = max(idWidth, static_cast<int>(id.size()));
+        nameWidth = max(nameWidth, static_cast<int>(name.size()));
+        rarityWidth = max(rarityWidth, static_cast<int>(rarity.size()));
+        durabilityWidth = max(durabilityWidth, static_cast<int>(durability.size()));
+    }
 
-        cout << endl;
+    // 계산한 너비에 맞춰 아이템 출력
+    for (int i = 0; i < items.getSize(); i++) {
+        Item* item = items.get(i);
+
+        if (item == nullptr) {
+            continue;
+        }
+
+        string slot = "[" + to_string(i) + "]";
+        string id = "ID: " + to_string(item->getId());
+        string name = "Name: " + item->getName();
+
+        string durability = "Durability: None";
+
+        if (item->getType() == ItemType::Durability) {
+            durability = "Durability: "
+                + to_string(item->getDurability())
+                + " / "
+                + to_string(item->getMaxDurability());
+        }
+
+        int quantity = item->isStackable()
+            ? item->getQuantity() : 1;
+
+        cout << left
+            << setw(slotWidth) << slot << " "
+            << setw(idWidth) << id << " | "
+            << setw(nameWidth) << name << " | "
+            << "★ " << setw(rarityWidth) << item->getRarity() << " | "
+            << setw(durabilityWidth) << durability << " | "
+            << "Quantity: " << quantity
+            << endl;
     }
 }
+
+
 
 // 최대 슬롯 개수 설정
 bool Inventory::setMaxSlots(int value) {
