@@ -1,12 +1,2 @@
 ID|NAME|CATEGORY|RARITY|TYPE|DURABILITY|MAX_DURABILITY|QUANTITY
-1002|Iron Sword|Weapon|2|Durability|100|100|1
-1002|Iron Sword|Weapon|2|Durability|100|100|1
-1002|Iron Sword|Weapon|2|Durability|100|100|1
-1002|Iron Sword|Weapon|2|Durability|99|100|1
-1002|Iron Sword|Weapon|2|Durability|100|100|1
-1002|Iron Sword|Weapon|2|Durability|100|100|1
-1002|Iron Sword|Weapon|2|Durability|100|100|1
-1002|Iron Sword|Weapon|2|Durability|100|100|1
-1002|Iron Sword|Weapon|2|Durability|100|100|1
-1002|Iron Sword|Weapon|2|Durability|100|100|1
-1001|Health Potion|Consumable|1|Consumable|0|0|10
+1001|Health Potion|Consumable|1|Consumable|0|0|30

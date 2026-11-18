@@ -1,5 +1,11 @@
 ID|NAME|CATEGORY|RARITY|TYPE|MAX_DURABILITY
 1001|Health Potion|Consumable|1|Consumable|0
-1002|Iron Sword|Weapon|2|Durability|100
-1003|Magic Compass|Tool|4|Permanent|0
-1004|Ancient Coin|Collectible|3|Unusable|0
+1002|Mana Potion|Consumable|2|Consumable|0
+1003|Elixir of Life|Consumable|5|Consumable|0
+1004|Wooden Sword|Weapon|1|Durability|50
+1005|Iron Sword|Weapon|2|Durability|100
+1006|Dragon Slayer|Weapon|5|Durability|250
+1007|Magic Compass|Tool|3|Permanent|0
+1008|Teleport Stone|Tool|4|Permanent|0
+1009|Ancient Coin|Collectible|3|Unusable|0
+1010|Broken Crown|Collectible|4|Unusable|0

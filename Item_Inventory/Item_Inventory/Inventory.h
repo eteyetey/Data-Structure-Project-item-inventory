@@ -67,7 +67,7 @@ public:
     
 
     void clear();
-    void printAll();
+    void printAll(bool isStorage = false);
 
     // 최대 슬롯 및 중첩 수량 설정
     bool setMaxSlots(int value);

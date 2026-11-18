@@ -1,4 +1,3 @@
-
 #include "Inventory.h"
 #include <iostream>
 #include <algorithm>
@@ -383,12 +382,20 @@ void Inventory::clear() {
 
 
 // 인벤토리 전체 출력
-void Inventory::printAll() {
-
-    if (items.isEmpty()) {
-        cout << "Inventory is empty." << endl;
-        return;
+void Inventory::printAll(bool isStorage) {
+    if (isStorage) {
+        if (items.isEmpty()) {
+            cout << "Storage is empty." << endl;
+            return;
+        }
     }
+    else {
+        if (items.isEmpty()) {
+            cout << "Inventory is empty." << endl;
+            return;
+        }
+    }
+   
 
 
     for (int i = 0; i < items.getSize(); i++) {

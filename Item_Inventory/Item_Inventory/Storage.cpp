@@ -113,5 +113,5 @@ bool Storage::setMaxStack(int value) {
 
 // 보관함 내용 출력
 void Storage::printAll() {
-    inventory.printAll();
+    inventory.printAll(true);
 }
