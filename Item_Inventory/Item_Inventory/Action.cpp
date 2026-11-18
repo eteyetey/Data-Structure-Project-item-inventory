@@ -28,7 +28,6 @@ static void waitForEnter() {
 }
 
 // 정수 입력(숫자가 아닌 값이 들어오면 다시 입력받음)
-
 int Action::readInt(const string& message) {
     string line;
     int value;
@@ -53,17 +52,13 @@ int Action::readInt(const string& message) {
 }
 
 // 메인 메뉴
-
 void Action::showMenu() {
     cout << "\n========== ITEM INVENTORY ==========\n";
-    cout << "1. View Inventory\n";
-    cout << "2. View Item Catalog\n";
-    cout << "3. Add Item\n";
-    cout << "4. Use Item\n";
-    cout << "5. Remove Item\n";
-    cout << "6. Manage Storages\n";
-    cout << "7. Save Data\n";
-    cout << "8. Load Data\n";
+    cout << "1. Manage Inventory\n";
+    cout << "2. Manage Storage\n";
+    cout << "3. Item Catalog\n";
+    cout << "4. Save\n";
+    cout << "5. Load\n";
     cout << "0. Exit\n";
     cout << "====================================\n";
 }
@@ -89,7 +84,11 @@ void Action::run() {
             }
 
             handleInput(choice);
-            waitForEnter();
+
+            // 하위 메뉴에서는 자체적으로 입력 대기를 처리함
+            if (choice != 1 && choice != 2) {
+                waitForEnter();
+            }
         }
         catch (const exception& e) {
             cout << "Program error: " << e.what() << "\n";
@@ -101,34 +100,22 @@ void Action::run() {
 void Action::handleInput(int choice) {
     switch (choice) {
     case 1:
-        showInventory();
+        manageInventory();
         break;
 
     case 2:
-        showItemCatalog();
-        break;
-
-    case 3:
-        addItem();
-        break;
-
-    case 4:
-        useItem();
-        break;
-
-    case 5:
-        removeItem();
-        break;
-
-    case 6:
         manageStorage();
         break;
 
-    case 7:
+    case 3:
+        showItemCatalog();
+        break;
+
+    case 4:
         saveData();
         break;
 
-    case 8:
+    case 5:
         loadData();
         break;
 
@@ -137,8 +124,99 @@ void Action::handleInput(int choice) {
     }
 }
 
-// 인벤토리 출력
+// 인벤토리를 표시한 상태에서 기능 선택
+void Action::manageInventory() {
+    while (true) {
+        clearScreen();
+        showInventory();
 
+        cout << "\n===== MANAGE INVENTORY =====\n";
+        cout << "1. Add Item\n";
+        cout << "2. Use Item\n";
+        cout << "3. Remove Item\n";
+        cout << "4. Transfer to Storage\n";
+        cout << "0. Back\n";
+
+        int choice = readInt("Select > ");
+
+        if (choice == 0) {
+            return;
+        }
+
+        clearScreen();
+        showInventory();
+        cout << "\n";
+
+        switch (choice) {
+        case 1:
+            addItem();
+            break;
+
+        case 2:
+            useItem();
+            break;
+
+        case 3:
+            removeItem();
+            break;
+
+        case 4:
+            transferToStorage();
+            break;
+
+        default:
+            cout << "Invalid menu option.\n";
+        }
+
+        waitForEnter();
+    }
+}
+
+// 인벤토리 메뉴에서 바로 보관함으로 이동
+void Action::transferToStorage() {
+    if (inventory.isEmpty()) {
+        cout << "Inventory is empty.\n";
+        return;
+    }
+
+    cout << "\n===== SELECT STORAGE =====\n";
+    storageManager.printAll();
+
+    int id = readInt("Storage ID (0=Cancel): ");
+
+    if (id == 0) {
+        cout << "Transfer cancelled.\n";
+        return;
+    }
+
+    Storage* storage = storageManager.getStorage(id);
+
+    if (storage == nullptr) {
+        cout << "Storage not found.\n";
+        return;
+    }
+
+    clearScreen();
+    showInventory();
+
+    cout << "\n===== " << storage->getName() << " =====\n";
+    storage->printAll();
+
+    int slot = readInt("Slot to deposit: ");
+    int quantity = readInt("Quantity to deposit: ");
+
+    if (quantity <= 0 || inventory.getItem(slot) == nullptr) {
+        cout << "Invalid slot or quantity.\n";
+        return;
+    }
+
+    AddResult result = storage->deposit(inventory, slot, quantity);
+
+    cout << "Items transferred: " << result.added << "\n";
+    cout << "Items not transferred: " << result.remaining << "\n";
+}
+
+// 인벤토리 출력
 void Action::showInventory() {
     cout << "\n===== INVENTORY =====\n";
 
@@ -152,7 +230,6 @@ void Action::showInventory() {
 }
 
 // 아이템 목록 출력
-
 void Action::showItemCatalog() {
     cout << "\n===== ITEM CATALOG =====\n";
 
@@ -171,7 +248,6 @@ void Action::showItemCatalog() {
 }
 
 // 아이템 추가
-
 void Action::addItem() {
     if (itemCatalog.empty()) {
         cout << "Item catalog is empty.\n";
@@ -198,6 +274,10 @@ void Action::addItem() {
 
         AddResult result = inventory.addItem(newItem);
 
+        clearScreen();
+        showInventory();
+        showItemCatalog();
+
         cout << "Items added: "
             << result.added << "\n";
 
@@ -211,10 +291,7 @@ void Action::addItem() {
 }
 
 // 아이템 사용
-
 void Action::useItem() {
-    showInventory();
-
     if (inventory.isEmpty()) {
         return;
     }
@@ -250,10 +327,7 @@ void Action::useItem() {
 }
 
 // 아이템 삭제
-
 void Action::removeItem() {
-    showInventory();
-
     if (inventory.isEmpty()) {
         return;
     }
@@ -275,6 +349,10 @@ void Action::removeItem() {
         return;
     }
 
+    clearScreen();
+    showInventory();
+    showItemCatalog();
+
     if (inventory.removeItemAt(slot)) {
         cout << "Item removed successfully.\n";
     }
@@ -284,7 +362,6 @@ void Action::removeItem() {
 }
 
 // 보관함 메뉴
-
 void Action::showStorageMenu() {
     cout << "\n===== STORAGE MANAGER =====\n";
     cout << "1. List Storages\n";
@@ -330,12 +407,12 @@ void Action::manageStorage() {
         default:
             cout << "Invalid menu option.\n";
         }
+
         waitForEnter();
     }
 }
 
 // 보관함 생성
-
 void Action::createStorage() {
     string name;
 
@@ -364,7 +441,6 @@ void Action::createStorage() {
 }
 
 // 보관함 삭제
-
 void Action::removeStorage() {
     storageManager.printAll();
 
@@ -402,7 +478,6 @@ void Action::removeStorage() {
 }
 
 // 보관함 이름 변경
-
 void Action::renameStorage() {
     storageManager.printAll();
 
@@ -430,7 +505,6 @@ void Action::renameStorage() {
 }
 
 // 보관함 열기
-
 void Action::openStorage() {
     storageManager.printAll();
 
@@ -445,6 +519,7 @@ void Action::openStorage() {
 
     while (true) {
         clearScreen();
+
         cout << "\n===== "
             << storage->getName()
             << " =====\n";
@@ -476,12 +551,12 @@ void Action::openStorage() {
         default:
             cout << "Invalid menu option.\n";
         }
+
         waitForEnter();
     }
 }
 
 // 보관함에 아이템 넣기
-
 void Action::depositItem(Storage& storage) {
     cout << "\n===== PLAYER INVENTORY =====\n";
 
@@ -509,7 +584,6 @@ void Action::depositItem(Storage& storage) {
 }
 
 // 보관함에서 아이템 꺼내기
-
 void Action::withdrawItem(Storage& storage) {
     cout << "\n===== STORAGE INVENTORY =====\n";
 
@@ -537,7 +611,6 @@ void Action::withdrawItem(Storage& storage) {
 }
 
 // 인벤토리와 보관함 데이터 저장
-
 void Action::saveData() {
     // 인벤토리와 보관함을 각각 저장하고 둘 다 성공했는지 확인
     bool inventorySaved =
@@ -558,7 +631,6 @@ void Action::saveData() {
 }
 
 // 저장된 데이터 불러오기
-
 void Action::loadData() {
     // 현재 데이터를 덮어쓰게 되므로 불러오기 전에 확인
     int confirm = readInt(

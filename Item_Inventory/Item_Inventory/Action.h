@@ -23,6 +23,8 @@ private:
     void showMenu();
     void handleInput(int choice);
 
+    void manageInventory();
+    void transferToStorage();
     void showInventory();
     void showItemCatalog();
     void addItem();
