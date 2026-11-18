@@ -1,2 +1,2 @@
 ID|NAME|CATEGORY|RARITY|TYPE|DURABILITY|MAX_DURABILITY|QUANTITY
-1001|Health Potion|Consumable|1|Consumable|0|0|30
+1001|Health Potion|Consumable|1|Consumable|0|0|10

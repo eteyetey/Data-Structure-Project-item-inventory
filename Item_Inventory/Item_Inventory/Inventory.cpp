@@ -184,6 +184,41 @@ bool Inventory::removeItemAt(int index) {
 }
 
 
+// 지정한 슬롯에서 원하는 수량만큼 아이템 삭제
+bool Inventory::removeItemQuantity(int index, int quantity) {
+    Item* item = getItem(index);
+
+    if (item == nullptr || quantity < 0) {
+        return false;
+    }
+
+    int currentQuantity = item->getQuantity();
+
+    // 0이면 슬롯 전체 삭제
+    if (quantity == 0) {
+        return removeItemAt(index);
+    }
+
+    // 보유 수량보다 많이 삭제할 수 없음
+    if (quantity > currentQuantity) {
+        return false;
+    }
+
+    // 모든 수량을 삭제하면 노드도 삭제
+    if (quantity == currentQuantity) {
+        return removeItemAt(index);
+    }
+
+    // 내구도형 아이템은 수량 단위로 삭제할 수 없음
+    if (!item->isStackable()) {
+        return false;
+    }
+
+    // 일부 수량만 삭제하는 경우 노드는 유지
+    return item->removeQuantity(quantity);
+}
+
+
 // 같은 ID 중 특정 아이템 하나 삭제
 bool Inventory::removeItem(int id, int index) {
 

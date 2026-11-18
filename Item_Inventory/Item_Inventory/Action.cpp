@@ -326,40 +326,68 @@ void Action::useItem() {
     cout << "Failed to find item.\n";
 }
 
+
 // 아이템 삭제
 void Action::removeItem() {
     if (inventory.isEmpty()) {
+        cout << "Inventory is empty.\n";
         return;
     }
 
     int slot = readInt("Slot to remove: ");
 
-    if (inventory.getItem(slot) == nullptr) {
+    Item* item = inventory.getItem(slot);
+
+    if (item == nullptr) {
         cout << "Invalid slot.\n";
         return;
     }
 
-    // 슬롯 하나를 통째로 삭제하므로 확인을 받음
-    int confirm = readInt(
-        "Remove entire slot? (1=Yes, 0=No): "
-    );
+    int currentQuantity = item->getQuantity();
 
-    if (confirm != 1) {
-        cout << "Removal cancelled.\n";
+    cout << "Selected: " << item->getName() << "\n";
+    cout << "Current quantity: " << currentQuantity << "\n";
+
+    int quantity = readInt("Quantity to remove: ");
+
+    if (quantity < 0 || quantity > currentQuantity) {
+        cout << "Invalid quantity.\n";
         return;
     }
 
-    clearScreen();
-    showInventory();
-    showItemCatalog();
+    // 슬롯 전체를 삭제하는 경우 확인을 받음
+    if (quantity >= currentQuantity) {
+        int confirm = readInt(
+            "Remove entire slot? (1=Yes, 0=No): "
+        );
 
-    if (inventory.removeItemAt(slot)) {
-        cout << "Item removed successfully.\n";
+        if (confirm != 1) {
+            cout << "Removal cancelled.\n";
+            return;
+        }
+    }
+
+    int removed = quantity == 0 ? currentQuantity : quantity;
+
+    if (inventory.removeItemQuantity(slot, quantity)) {
+        cout << "Items removed: " << removed << "\n";
+
+        Item* remaining = inventory.getItem(slot);
+
+        // 슬롯이 삭제되면 다음 아이템이 당겨질 수 있으므로 기존 포인터는 사용하지 않음
+        if (removed == currentQuantity) {
+            cout << "Slot removed successfully.\n";
+        }
+        else if (remaining != nullptr) {
+            cout << "Remaining quantity: "
+                << remaining->getQuantity() << "\n";
+        }
     }
     else {
         cout << "Failed to remove item.\n";
     }
 }
+
 
 // 보관함 메뉴
 void Action::showStorageMenu() {

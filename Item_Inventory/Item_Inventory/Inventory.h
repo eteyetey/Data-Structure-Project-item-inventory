@@ -47,6 +47,10 @@ public:
     // 같은 ID 중 특정 아이템 하나 삭제
     bool removeItem(int id, int index);
 
+    //인벤토리의 특정 슬롯 아이템 개수 지정해서 삭제
+    bool removeItemQuantity(int index, int quantity);
+
+
     // 같은 ID 아이템 전부 삭제
     bool removeAllItems(int id);
 
